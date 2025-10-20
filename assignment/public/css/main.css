@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --spacing: 0.25rem;
     --container-md: 28rem;
+    --container-lg: 32rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-5xl: 3rem;
@@ -1032,28 +1033,6 @@
       }
     }
   }
-  .image-full {
-    @layer daisyui.modifier {
-      display: grid;
-      > * {
-        grid-column-start: 1;
-        grid-row-start: 1;
-      }
-      > .card-body {
-        position: relative;
-        color: var(--color-neutral-content);
-      }
-      :where(figure) {
-        overflow: hidden;
-        border-radius: inherit;
-      }
-      > figure img {
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(28%);
-      }
-    }
-  }
   .menu-horizontal {
     @layer daisyui.modifier {
       display: inline-flex;
@@ -1432,36 +1411,6 @@
       }
     }
   }
-  .dropdown-center {
-    @layer daisyui.modifier {
-      --anchor-h: center;
-      :where(.dropdown-content) {
-        inset-inline-end: calc(1/2 * 100%);
-        translate: 50% 0;
-        [dir="rtl"] & {
-          translate: -50% 0;
-        }
-      }
-      &.dropdown-left {
-        --anchor-h: left;
-        --anchor-v: center;
-        .dropdown-content {
-          top: auto;
-          bottom: calc(1/2 * 100%);
-          translate: 0 50%;
-        }
-      }
-      &.dropdown-right {
-        --anchor-h: right;
-        --anchor-v: center;
-        .dropdown-content {
-          top: auto;
-          bottom: calc(1/2 * 100%);
-          translate: 0 50%;
-        }
-      }
-    }
-  }
   .dropdown-end {
     @layer daisyui.modifier {
       --anchor-h: span-left;
@@ -1492,9 +1441,6 @@
   }
   .right-0 {
     right: calc(var(--spacing) * 0);
-  }
-  .left-0 {
-    left: calc(var(--spacing) * 0);
   }
   .hero-content {
     @layer daisyui.component {
@@ -1598,13 +1544,6 @@
       }
     }
   }
-  .drawer-content {
-    @layer daisyui.component {
-      grid-column-start: 2;
-      grid-row-start: 1;
-      min-width: calc(0.25rem * 0);
-    }
-  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -1669,9 +1608,6 @@
   }
   .mx-auto {
     margin-inline: auto;
-  }
-  .my-8 {
-    margin-block: calc(var(--spacing) * 8);
   }
   .prose {
     color: var(--tw-prose-body);
@@ -2126,13 +2062,6 @@
       }
     }
   }
-  .navbar-center {
-    @layer daisyui.component {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-  }
   .card-actions {
     @layer daisyui.component {
       display: flex;
@@ -2220,23 +2149,17 @@
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
-  .h-96 {
-    height: calc(var(--spacing) * 96);
-  }
-  .min-h-screen {
-    min-height: 100vh;
-  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
   .w-52 {
     width: calc(var(--spacing) * 52);
   }
-  .w-96 {
-    width: calc(var(--spacing) * 96);
-  }
   .w-full {
     width: 100%;
+  }
+  .max-w-lg {
+    max-width: var(--container-lg);
   }
   .max-w-md {
     max-width: var(--container-md);
@@ -2288,12 +2211,6 @@
   .flex-wrap {
     flex-wrap: wrap;
   }
-  .place-content-center {
-    place-content: center;
-  }
-  .justify-center {
-    justify-content: center;
-  }
   .justify-end {
     justify-content: flex-end;
   }
@@ -2302,13 +2219,6 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
-  }
-  .space-x-4 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
-    }
   }
   .menu-sm {
     @layer daisyui.modifier {
@@ -2349,9 +2259,6 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
-  }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
   }
   .menu-title {
     @layer daisyui.component {
@@ -2395,15 +2302,14 @@
   .capitalize {
     text-transform: capitalize;
   }
+  .no-underline {
+    text-decoration-line: none;
+  }
   .underline {
     text-decoration-line: underline;
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-sm {
@@ -2448,10 +2354,6 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-  }
-  .ease-out {
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
   }
   .btn-soft {
     @layer daisyui.modifier {
@@ -2508,6 +2410,13 @@
       --size: calc(var(--size-field, 0.25rem) * 12);
     }
   }
+  .btn-sm {
+    @layer daisyui.modifier {
+      --fontsize: 0.75rem;
+      --btn-p: 0.75rem;
+      --size: calc(var(--size-field, 0.25rem) * 8);
+    }
+  }
   .btn-primary {
     @layer daisyui.modifier.color {
       --btn-color: var(--color-primary);
@@ -2520,25 +2429,9 @@
       --btn-fg: var(--color-success-content);
     }
   }
-  .btn-warning {
-    @layer daisyui.modifier.color {
-      --btn-color: var(--color-warning);
-      --btn-fg: var(--color-warning-content);
-    }
-  }
   .md\:grid-cols-2 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .md\:grid-cols-4 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .lg\:flex {
@@ -2551,44 +2444,9 @@
       display: none;
     }
   }
-  .lg\:card-side {
-    @media (width >= 64rem) {
-      @layer daisyui.modifier {
-        align-items: stretch;
-        flex-direction: row;
-        :where(figure:first-child) {
-          overflow: hidden;
-          border-start-start-radius: inherit;
-          border-start-end-radius: unset;
-          border-end-start-radius: inherit;
-          border-end-end-radius: unset;
-        }
-        :where(figure:last-child) {
-          overflow: hidden;
-          border-start-start-radius: unset;
-          border-start-end-radius: inherit;
-          border-end-start-radius: unset;
-          border-end-end-radius: inherit;
-        }
-        figure > * {
-          max-width: unset;
-        }
-        :where(figure > *) {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-    }
-  }
   .lg\:grid-cols-3 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 64rem) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 }
@@ -4014,11 +3872,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-space-x-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
@@ -4163,7 +4016,6 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
-      --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;

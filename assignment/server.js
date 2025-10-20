@@ -1,3 +1,4 @@
+
 /********************************************************************************
  *  WEB322 – Assignment 01
  *
@@ -57,8 +58,8 @@ app.get("/solutions/projects", (req, res) => {
 app.get("/solutions/projects/:id", (req, res) => {
   projectData
     .getProjectById(req.params.id)
-    .then((project) => res.json(project))
-    .catch((err) => res.status(404).send(err));
+    .then((project) => res.render("project", {project: project}))
+    .catch((err) => res.status(404).render("404", {message: err}));
 });
 
 app.use((req, res, next) => {
